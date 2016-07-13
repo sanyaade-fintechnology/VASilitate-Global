@@ -1,0 +1,21 @@
+[{
+	"color": "#996633",
+	"maxRepeatCount": -1,
+	"name": "Bronze",
+	"smsCount": 25
+}, {
+	"color": "#CCCCCC",
+	"maxRepeatCount": -1,
+	"name": "Silver",
+	"smsCount": 50
+}, {
+	"color": "#FFCC00",
+	"maxRepeatCount": -1,
+	"name": "Gold",
+	"smsCount": 100
+}, {
+	"color": "#99CCFF",
+	"maxRepeatCount": -1,
+	"name": "Platinum",
+	"smsCount": 200
+}]
