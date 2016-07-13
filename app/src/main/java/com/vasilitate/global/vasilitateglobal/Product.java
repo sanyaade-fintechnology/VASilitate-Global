@@ -4,12 +4,16 @@ import com.vasilitate.vapp.sdk.VappProduct;
 
 /**
  * Created by jamesfoot on 12/07/2016.
+ *
+ * This contains the product details. Including color. Use the toVappProduct to use with Vapp SDK
+ * (Using inheretance messed with gson).
+ *
  */
 public class Product {
 
     private String name;
     private String color; //this should now be hexidecimal
-    private int countSms;
+    private int smsCount;
     private int maxRepeatCount;
     public static final int UNLIMTED_REPEATS = -1;  // currently using -1 if unlimited.
 
@@ -17,12 +21,12 @@ public class Product {
         //super(name, smsCount, maxRepeatCount);
         this.name = name;
         this.color = color;
-        this.countSms = smsCount;
+        this.smsCount = smsCount;
         this.maxRepeatCount = maxRepeatCount;
     }
 
     public VappProduct toVappProduct(){
-        return new VappProduct(name, countSms, maxRepeatCount);
+        return new VappProduct(name, smsCount, maxRepeatCount);
     }
 
     public String getColor() {
@@ -42,11 +46,11 @@ public class Product {
     }
 
     public int getSmsCount() {
-        return countSms;
+        return smsCount;
     }
 
     public void setSmsCount(int smsCount) {
-        this.countSms = smsCount;
+        this.smsCount = smsCount;
     }
 
     public int getMaxRepeatCount() {
