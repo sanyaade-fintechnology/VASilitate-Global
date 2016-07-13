@@ -1,21 +1,21 @@
 [{
 	"color": "#996633",
 	"maxRepeatCount": -1,
-	"name": "Bronze",
+	"productId": "Bronze",
 	"smsCount": 25
 }, {
 	"color": "#CCCCCC",
 	"maxRepeatCount": -1,
-	"name": "Silver",
+	"productId": "Silver",
 	"smsCount": 50
 }, {
 	"color": "#FFCC00",
 	"maxRepeatCount": -1,
-	"name": "Gold",
+	"productId": "Gold",
 	"smsCount": 100
 }, {
 	"color": "#99CCFF",
 	"maxRepeatCount": -1,
-	"name": "Platinum",
+	"productId": "Platinum",
 	"smsCount": 200
 }]

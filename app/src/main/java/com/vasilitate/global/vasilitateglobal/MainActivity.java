@@ -10,12 +10,12 @@ import android.widget.ListView;
 
 import com.vasilitate.vapp.sdk.Vapp;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView buttonList;
-    ArrayList<Product> data;
+    List<Product> data;
     private ButtonListAdapter adapter;
 
     @Override
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         buttonList = (ListView) findViewById(R.id.main_list_buttons);
-        data = JsonUtils.getColorDataList(getApplicationContext());
+        data = JsonUtils.getJSONProducts(getApplicationContext());
         adapter = new ButtonListAdapter(getApplicationContext(), data);
         buttonList.setAdapter(adapter);
 
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 final Product product = data.get(i);
-                String confirmMessage = "VAPP! will now send " + product.getSmsCount() + " SMS texts to complete the purchase." +
+                String confirmMessage = "VAPP! will now send " + product.getRequiredSmsCount() + " SMS texts to complete the purchase." +
                         " Please confirm you wish to proceed.";
 
                 new AlertDialog.Builder(MainActivity.this)
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 // Initialise payment for product.
-                                Vapp.showVappPaymentScreen(MainActivity.this, product.toVappProduct(), false);
+                                Vapp.showVappPaymentScreen(MainActivity.this, product, false);
                             }
                         }).show();
             }

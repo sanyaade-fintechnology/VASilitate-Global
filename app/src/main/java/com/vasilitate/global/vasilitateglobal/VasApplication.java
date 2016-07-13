@@ -8,9 +8,11 @@ import com.vasilitate.vapp.sdk.VappProduct;
 
 import java.util.ArrayList;
 
-/**
- * Created by jamesfoot on 12/07/2016.
+/*
+ * This app reads Vapp products from a JSON file named vapp_products, and creates a list of products that can be clicked to order that product using Vapp.
+ * vapp_products is stored in the assets file and holds the color as a hexidecimal as well as the product id, cost and maximum number of orders.
  */
+
 public class VasApplication extends Application {
 
     private static final String VAPP_SDK_KEY = "C1EE9CB28A54C87C2194";
@@ -23,9 +25,6 @@ public class VasApplication extends Application {
         super.onCreate();
         ArrayList<VappProduct> vappProducts = JsonUtils.getVappProducts(getApplicationContext());
 
-        //TODO: not sure what subscriptions should be.
-        ArrayList<VappProduct> subsriptions = new ArrayList<>();
-
         if(TEST_MODE)
             Toast.makeText(getApplicationContext(), "This app is in test mode", Toast.LENGTH_SHORT).show();
 
@@ -33,13 +32,12 @@ public class VasApplication extends Application {
             // initialise VAPP! with the products
             Vapp.initialise(getApplicationContext(),
                     vappProducts,
-                    subsriptions, //Don't need this on the vapp example app. Maybe related to updated sdk?
+                    null, //No subscriptions here.
                     TEST_MODE,
                     CANCELLABLE_PRODUCTS,
                     VAPP_SDK_KEY);
 
         } catch( Exception e ) {
-            //Log.e("VasApplication", e.getMessage());
             Toast.makeText( this, "Vapp Exception: " + e.getMessage(), Toast.LENGTH_LONG ).show();
         }
 
