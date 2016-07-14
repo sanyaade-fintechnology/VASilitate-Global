@@ -8,8 +8,8 @@ import com.vasilitate.vapp.sdk.VappProduct;
  */
 public class Product extends VappProduct {
 
-    private String color; //this should be hexidecimal
-    public static final int UNLIMTED_REPEATS = -1;  // currently using -1 if unlimited.
+    private String color; //Contains the color of the button in a Hexadecimal string.
+    public static final int UNLIMITED_REPEATS = -1;  // currently using -1 if unlimited.
 
     public Product(String id, String color, int smsCount, int maxRepeatCount){
         super(id, smsCount, maxRepeatCount);

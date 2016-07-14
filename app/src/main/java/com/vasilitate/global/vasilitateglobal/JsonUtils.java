@@ -42,7 +42,7 @@ public class JsonUtils {
     public static List<Product> getJSONProducts(Context context){
         Gson gson = new Gson();
         String jsonData = getJSONStringFromFile(context);
-        if(jsonData.length() == 0 ) {
+        if(jsonData != null && jsonData.length() == 0 ) {
             return new ArrayList<Product>();
         } else {
             Product[] productsArray = gson.fromJson(jsonData, Product[].class);
