@@ -8,7 +8,7 @@ import com.vasilitate.vapp.sdk.VappProduct;
 
 import java.util.ArrayList;
 
-/*
+/**
  * This app reads Vapp products from a JSON file named vapp_products, and creates a list of products that can be clicked to order that product using Vapp.
  * vapp_products is stored in the assets file and holds the color as a hexidecimal as well as the product id, cost and maximum number of orders.
  */

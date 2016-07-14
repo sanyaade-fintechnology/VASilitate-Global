@@ -14,12 +14,16 @@ import java.util.List;
 
 public class JsonUtils {
 
+    private static final String JSON_FILENAME = "vapp_products";
 
-    private static String readJSONFromFile(Context context){
+    /*
+     * Returns the string of JSON data saved under vapp_products in the assets directory.
+     */
+    private static String getJSONStringFromFile(Context context){
         String jsonString = "";
 
         try {
-            InputStream is = context.getAssets().open("vapp_products");
+            InputStream is = context.getAssets().open(JSON_FILENAME);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -32,14 +36,23 @@ public class JsonUtils {
         return jsonString;
     }
 
+    /**
+     * Parses the JSON data saved to vapp_products and returns a list of Products.
+     */
     public static List<Product> getJSONProducts(Context context){
         Gson gson = new Gson();
-        Product[] productsArray = gson.fromJson(readJSONFromFile(context), Product[].class);
-        return Arrays.asList(productsArray);
+        String jsonData = getJSONStringFromFile(context);
+        if(jsonData.length() == 0 ) {
+            return new ArrayList<Product>();
+        } else {
+            Product[] productsArray = gson.fromJson(jsonData, Product[].class);
+            return Arrays.asList(productsArray);
+        }
     }
 
-
-
+    /**
+     * parses the JSON data saved to vapp_products and returns a list of VappProducts.
+    */
     public static ArrayList<VappProduct> getVappProducts(Context context){
         List<Product> products = getJSONProducts(context);
         ArrayList<VappProduct> vappProducts = new ArrayList<>();

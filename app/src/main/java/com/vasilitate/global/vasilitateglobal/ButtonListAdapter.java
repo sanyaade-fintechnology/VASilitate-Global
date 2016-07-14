@@ -12,7 +12,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
-
+/**
+ * Displays the Vapp products in a clickable listview.
+ */
 public class ButtonListAdapter extends ArrayAdapter<Product> {
 
 

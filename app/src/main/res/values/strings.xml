@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">VASilitate Global</string>
+    <string name="confirm_text_1">VAPP! will now send</string>
+    <string name="confirm_text_2">SMS texts to complete the purchase. Please confirm you wish to proceed.</string>
 </resources>
