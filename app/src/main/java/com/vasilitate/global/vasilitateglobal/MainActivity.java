@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 // Initialise payment for product.
-                                Vapp.showVappPaymentScreen(MainActivity.this, product, false);
+                                Vapp.showVappPaymentScreen(MainActivity.this, product, false, 0);
                             }
                         }).show();
             }
